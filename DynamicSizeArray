@@ -1,0 +1,40 @@
+//SPDX-License-Identifier: MIT
+
+pragma solidity ^0.8.13;
+
+contract DynamicSizeArray {
+
+    uint[] arr = [10,20,30,40,50,60];
+    string[] strArr = ["ABC","DEF","GHI","JKL"];
+    address[] addArr ;
+
+    constructor() {
+
+        addArr = [0xAb8483F64d9C6d1EcF9b849Ae677dD3315835cb2,
+                    0xAb8483F64d9C6d1EcF9b849Ae677dD3315835cb2,
+                    0xAb8483F64d9C6d1EcF9b849Ae677dD3315835cb2];
+
+    }
+
+    function viewArray() public view returns(uint[] memory,string[] memory,address[] memory) {
+        //We usually do not return whole array or get whole array
+        //Because it consume much more Gas
+        return (arr,strArr,addArr);
+    }
+    function pushingIntoArray() public {
+        arr.push(70);
+        strArr.push("MNO");
+        addArr.push(0x17F6AD8Ef982297579C203069C1DbfFE4348c372);
+    }
+
+    function popFromArray() public {
+        arr.pop();
+        strArr.pop();
+        addArr.pop();
+
+    }
+
+
+
+
+}
