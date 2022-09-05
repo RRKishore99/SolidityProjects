@@ -1,0 +1,37 @@
+//SPDX-License-Identifier: MIT
+
+pragma solidity ^0.8.14;
+
+//Cannot create mapping here(File level)
+
+contract MappingDemo {
+
+    //We can only create mapping on contract level
+    //This key can be datatype,struct,enum and contract
+    //We cannot iterate a mapping like array 
+    mapping(uint=>uint) public emp_id;
+
+    constructor() {
+        emp_id[3] = 11234;
+    }
+
+    function createDataInMap() public {
+
+        emp_id[1] =  234;
+        emp_id[23] = 356;
+        emp_id[2] = 729;
+        emp_id[89] = 890;
+        emp_id[42] = 345;
+
+    }
+    //getting the data from Id which user enters
+    function getDataFromId(uint _id) public view returns(uint) {
+     
+
+       return emp_id[_id];
+       
+
+    }
+
+
+}
