@@ -1,0 +1,30 @@
+//SPDX-License-Identifier: MIT
+
+pragma solidity ^0.8.15;
+
+contract readandview {
+
+    uint testVar = 1234;
+
+
+    function readFunction() view public returns(uint answer) {
+
+        return testVar;
+    }
+    // function pureFunction() pure public returns(uint) {
+    //     return testVar;
+    // }  ---This function cannot able to read,write any of the state or global variable
+
+     function pureComputation(uint para1 , uint para2) public pure returns(uint result) {
+        // do whatever with para1 and para2 and assign to result as below
+        uint testVar2 = 20;
+        testVar2  = testVar2 + 1;
+        result = para1 + para2 + testVar2;
+        return  result;
+    }
+
+    function simpleFunction() public returns(uint answer2){
+        testVar = testVar+10;
+        return testVar;
+    }
+}
